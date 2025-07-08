@@ -1,6 +1,5 @@
 'use client'
 import { useState } from 'react';
-import Head from 'next/head';
 import confetti from 'canvas-confetti';
 
 export default function Home() {
