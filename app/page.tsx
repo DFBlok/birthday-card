@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react';
 import confetti from 'canvas-confetti';
+import Image from 'next/image';
 
 export default function Home() {
 
@@ -51,8 +52,8 @@ export default function Home() {
       </section>
             {/* ✅ Show avatar only after clicking */}
       {clicked && (
-        <div className='avatar-container py-70'>
-          <img src="/image1.jpg" alt="icon" className='avatar ' />
+        <div className='avatar-container py-50'>
+          <Image src="/image1.jpg" alt="icon" width={100} height={100} className='avatar rounded-full animate-float' />
         </div>
       )}
       {!clicked ? (
@@ -64,12 +65,12 @@ export default function Home() {
           <h1 className="animate__animated animate__bounceIn">
             🎉 Happy Birthday, Lutho Duka! 🎉
           </h1>
-          <p>Happy Birthday!
+          <p>&quot;Happy Birthday!
 Today is all about you your light, and the joy you bring to everyone around you.
 May your year ahead be filled with magic, surprise hugs, silly moments, and dreams coming true.
-You're not just another year older you're another year more amazing.
+You&apos;re not just another year older you&apos;re another year more amazing.
 
-💖 Keep shining. Keep smiling. And never forget how loved you are.</p>
+💖 Keep shining. Keep smiling. And never forget how loved you are.&quot;</p>
           <button onClick={triggerConfetti}>Start Confetti</button>
         </div>
       )}
