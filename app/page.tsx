@@ -42,7 +42,7 @@ export default function Home() {
               {/* <div className='avatar-container 0'>
                 <img src="/avatar.png" alt="icon" className='avatar' />              
               </div> */}
-
+        
         <title>Birthday Surprise</title>
         <link
           rel="stylesheet"
@@ -64,12 +64,12 @@ export default function Home() {
           <h1 className="animate__animated animate__bounceIn">
             🎉 Happy Birthday, Lutho Duka! 🎉
           </h1>
-          <p>"Happy Birthday!
-Today is all about you — your laughter, your light, and the joy you bring to everyone around you.
+          <p>Happy Birthday!
+Today is all about you your light, and the joy you bring to everyone around you.
 May your year ahead be filled with magic, surprise hugs, silly moments, and dreams coming true.
-You're not just another year older — you're another year more amazing.
+You're not just another year older you're another year more amazing.
 
-💖 Keep shining. Keep smiling. And never forget how loved you are."</p>
+💖 Keep shining. Keep smiling. And never forget how loved you are.</p>
           <button onClick={triggerConfetti}>Start Confetti</button>
         </div>
       )}
