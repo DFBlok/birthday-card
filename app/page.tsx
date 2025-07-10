@@ -1,11 +1,10 @@
-'use client'
+'use client';
 import { useState } from 'react';
 import confetti from 'canvas-confetti';
 import Image from 'next/image';
 
 export default function Home() {
-
-    const [clicked, setClicked] = useState(false);
+  const [clicked, setClicked] = useState(false);
 
   const triggerConfetti = () => {
     const duration = 5 * 1000;
@@ -38,132 +37,90 @@ export default function Home() {
   };
 
   return (
-   <>            
-          <section>
-              {/* <div className='avatar-container 0'>
-                <img src="/avatar.png" alt="icon" className='avatar' />              
-              </div> */}
-        
-        <title>Birthday Surprise</title>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-        />
-      </section>
-            {/* ✅ Show avatar only after clicking */}
+    <>
+      <title>Birthday Surprise</title>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      />
+
+      {/* 🎂 Avatar shown after clicking */}
       {clicked && (
-        <div className='avatar-container py-50'>
-          <Image src="/image1.jpg" alt="icon" width={100} height={100} className='avatar rounded-full animate-float' />
+        <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-10">
+          <Image
+            src="/image1.jpg"
+            alt="icon"
+            width={100}
+            height={100}
+            className="rounded-full animate-float"
+          />
         </div>
       )}
+
       {!clicked ? (
-        <div className="start-screen" onClick={handleClick}>
-          <h1 className="glow-text">Click me if you dare...</h1>
+        <div
+          className="start-screen min-h-screen bg-black text-red-600 flex items-center justify-center text-center px-4"
+          onClick={handleClick}
+        >
+          <h1 className="glow-text text-3xl sm:text-4xl md:text-5xl">
+            Click me if you dare...
+          </h1>
         </div>
       ) : (
-        <div className="birthday-card">
-          <h1 className="animate__animated animate__bounceIn">
+        <div className="birthday-card min-h-screen px-6 py-12 flex flex-col items-center justify-center text-center">
+          <h1 className="animate__animated animate__bounceIn text-2xl sm:text-3xl md:text-4xl text-pink-500 mb-4">
             🎉 Happy Birthday, Lutho Duka! 🎉
           </h1>
-          <p>&quot;Happy Birthday!
-Today is all about you your light, and the joy you bring to everyone around you.
-May your year ahead be filled with magic, surprise hugs, silly moments, and dreams coming true.
-You&apos;re not just another year older you&apos;re another year more amazing.
-
-💖 Keep shining. Keep smiling. And never forget how loved you are.&quot;</p>
-          <button onClick={triggerConfetti}>Start Confetti</button>
+          <p className="text-base sm:text-lg md:text-xl text-gray-700 max-w-xl mb-6">
+            &quot;Happy Birthday! Today is all about you — your light, and the joy
+            you bring to everyone around you. May your year ahead be filled with
+            magic, surprise hugs, silly moments, and dreams coming true.
+            You&apos;re not just another year older — you&apos;re another year more
+            amazing. 💖 Keep shining. Keep smiling. And never forget how loved you are.&quot;
+          </p>
+          <button
+            onClick={triggerConfetti}
+            className="bg-pink-500 text-white text-base sm:text-lg px-6 py-3 rounded-xl hover:bg-pink-600 transition"
+          >
+            Start Confetti
+          </button>
         </div>
       )}
+
       <style jsx>{`
-        body {
-          margin: 0;
-          font-family: 'Segoe UI', sans-serif;
-        }
-
-        .start-screen {
-          background-color: #000;
-          color: red;
-          height: 100vh;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          cursor: pointer;
-        }
-
         .glow-text {
-          font-size: 2.5rem;
           text-shadow: 0 0 10px red, 0 0 20px red;
           animation: flicker 1.5s infinite;
         }
 
         @keyframes flicker {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.4; }
+          0%,
+          100% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0.4;
+          }
+        }
+
+        @keyframes float {
+          0%,
+          100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-20px);
+          }
+        }
+
+        .animate-float {
+          animation: float 3s ease-in-out infinite;
         }
 
         .birthday-card {
           background: linear-gradient(135deg, #ffecd2, #fcb69f);
-          height: 100vh;
-          text-align: center;
-          padding-top: 5rem;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
         }
-
-        .birthday-card h1 {
-          font-size: 3rem;
-          color: #ff4081;
-          margin-bottom: 1rem;
-        }
-
-        .birthday-card p {
-          font-size: 1.4rem;
-          margin-bottom: 2rem;
-          color: #444;
-        }
-
-        button {
-          padding: 1rem 2rem;
-          background: #ff4081;
-          color: white;
-          border: none;
-          border-radius: 12px;
-          font-size: 1.2rem;
-          cursor: pointer;
-          transition: 0.3s ease;
-        }
-
-        button:hover {
-          background: #e91e63;
-        }
-
-          .avatar-container {
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-  }
-
-  .avatar {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    animation: float 3s ease-in-out infinite;
-  }
-
-  
-  @keyframes float {
-    0%, 100% {
-      transform: translate(-50%, 0);
-    }
-    50% {
-      transform: translate(-50%, -20px);
-    }
-  }
       `}</style>
-   </>
+    </>
   );
 }
